@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <title>About Me - Tahir Asadov</title>
+  <link rel="stylesheet" href="/css/stylesheets.css">
+  <style>
+    .about-page {
+      padding: 60px 0 40px;
+    }
+
+    .about-hero {
+      text-align: center;
+      padding: 40px 0 50px;
+    }
+
+    .about-hero .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      border: 4px solid #1e90ff;
+    }
+
+    .about-hero h2 {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .about-hero .tagline {
+      font-family: 'Raleway', sans-serif;
+      font-size: 18px;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .about-section {
+      padding: 40px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .about-section h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .about-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #1e90ff;
+      border-radius: 2px;
+    }
+
+    .about-section p {
+      line-height: 1.7;
+      color: #444;
+      max-width: 800px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .skill-card {
+      padding: 20px 24px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 3px solid #1e90ff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .skill-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .skill-card span {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .companies-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .company-card {
+      padding: 24px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .company-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .company-card h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .company-card .platform {
+      font-size: 13px;
+      color: #1e90ff;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .company-card a {
+      font-size: 14px;
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    .company-card a:hover {
+      text-decoration: underline;
+    }
+
+    .sites-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 10px;
+    }
+
+    .sites-group h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .sites-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sites-group ul li {
+      margin-bottom: 10px;
+    }
+
+    .sites-group ul li a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .sites-group ul li a::before {
+      content: '\f0c1';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .sites-group ul li a:hover {
+      color: #0d6efd;
+      text-decoration: underline;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .project-card {
+      padding: 24px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-top: 3px solid #1e90ff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-card h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .project-card a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 50px 0 30px;
+      border-top: 1px solid #eee;
+    }
+
+    .cta-section h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      margin: 0 auto 24px;
+      color: #666;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .cta-section .cta-button {
+      display: inline-block;
+      padding: 12px 32px;
+      background: #1e90ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .cta-section .cta-button:hover {
+      background: #0d6efd;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e90ff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #0d6efd;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      .about-hero .tagline {
+        color: #aaa;
+      }
+
+      .about-section {
+        border-top-color: #333;
+      }
+
+      .about-section p {
+        color: #bbb;
+      }
+
+      .skill-card {
+        background: #1a1a1a;
+      }
+
+      .skill-card span {
+        color: #aaa;
+      }
+
+      .company-card {
+        background: #1a1a1a;
+      }
+
+      .company-card h4 {
+        color: #fff;
+      }
+
+      .company-card .platform {
+        color: #1e90ff;
+      }
+
+      .company-card p {
+        color: #aaa !important;
+      }
+
+      .sites-group h4 {
+        color: #ddd;
+      }
+
+      .project-card {
+        background: #1a1a1a;
+      }
+
+      .project-card p {
+        color: #aaa;
+      }
+
+      .cta-section {
+        border-top-color: #333;
+      }
+
+      .cta-section p {
+        color: #aaa;
+      }
+
+      .about-hero .avatar {
+        border-color: #1e90ff;
+      }
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .companies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sites-section {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-hero h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Menu -->
+  <section class="menu-section">
+    <div class="row">
+      <div class="container">
+        <div class="left">
+          <div class="menu">
+            <a href="/#about">About</a>
+            <a href="/#contact">Contact</a>
+            <a href="/#works">Works</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Header -->
+  <header class="header-section">
+    <div class="row">
+      <div class="container">
+        <div class="left">
+          <h1><a href="/">Tahir Asadli.</a></h1>
+        </div>
+        <div class="right">
+          <span class="menu-button">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- About Page -->
+  <div class="about-page">
+    <div class="container">
+      <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      <!-- Hero -->
+      <div class="about-hero">
+        <img src="https://avatars.githubusercontent.com/u/1172253?v=4" alt="Tahir Asadov" class="avatar">
+        <h2>Hi, I'm Tahir Asadov</h2>
+        <p class="tagline">Senior Web Developer with over 15 years of experience building WordPress, Shopify, and HubSpot themes, plugins, and modules.</p>
+      </div>
+      <!-- About -->
+      <div class="about-section">
+        <h3>About Me</h3>
+        <p>I develop WordPress, Shopify and HubSpot themes, plugins and modules. I have experience with Shopify CLI, HubSpot CLI, Git, and Web Components. I've worked with various agencies like Creatix Online Marketing, Roketto and WebStaff.</p>
+        <p style="margin-top: 16px;">Over the past 15 years, I have developed and refined my expertise in a wide range of web development technologies and frameworks. Here are the key technologies and tools I specialize in:</p>
+      </div>
+      <!-- Skills -->
+      <div class="about-section">
+        <h3>Technologies &amp; Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <strong><i class="fab fa-wordpress"></i> WordPress</strong>
+            <span>Adept at developing custom themes and plugins to create tailored solutions.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-shopify"></i> Shopify</strong>
+            <span>Experienced in building and customizing Shopify themes to enhance e-commerce experiences.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-hubspot"></i> HubSpot</strong>
+            <span>Knowledgeable in leveraging HubSpot's CMS and CRM capabilities for marketing automation and content management.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-git-alt"></i> Git</strong>
+            <span>Skilled in version control and collaborative development workflows.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-react"></i> Next.js</strong>
+            <span>Extensive experience in building scalable and high-performance web applications.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-js"></i> TypeScript</strong>
+            <span>Strong understanding of static typing to enhance code quality and maintainability.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-css3-alt"></i> Tailwind CSS</strong>
+            <span>Proficient in utilizing this utility-first framework to streamline development and ensure consistency.</span>
+          </div>
+          <div class="skill-card">
+            <strong><i class="fab fa-sass"></i> CSS / SCSS</strong>
+            <span>Expert in creating responsive layouts using Flexbox and Grid.</span>
+          </div>
+        </div>
+      </div>
+      <!-- Companies -->
+      <div class="about-section">
+        <h3>Companies I've Worked With</h3>
+        <div class="companies-grid">
+          <div class="company-card">
+            <h4>Roketto</h4>
+            <div class="platform">HubSpot</div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 10px;">Kelowna Web Design &amp; Inbound Marketing Agency</p>
+            <a href="https://www.helloroketto.com/" target="_blank">helloroketto.com <i class="fas fa-external-link-alt" style="font-size: 11px;"></i></a>
+          </div>
+          <div class="company-card">
+            <h4>WebStaff</h4>
+            <div class="platform">Shopify</div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 10px;">Development Agency</p>
+            <a href="https://www.upwork.com/agencies/1444234730755313664/" target="_blank">View on Upwork <i class="fas fa-external-link-alt" style="font-size: 11px;"></i></a>
+          </div>
+          <div class="company-card">
+            <h4>Creatix Online Marketing</h4>
+            <div class="platform">Shopify</div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 10px;">Online Marketing Agency</p>
+            <a href="https://creatix.io/" target="_blank">creatix.io <i class="fas fa-external-link-alt" style="font-size: 11px;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Sites Worked On -->
+      <div class="about-section">
+        <h3>Sites I've Worked On</h3>
+        <div class="sites-section">
+          <div class="sites-group">
+            <h4><i class="fab fa-shopify"></i> Shopify Sites</h4>
+            <ul>
+              <li><a href="https://www.choczero.com/" target="_blank">choczero.com</a></li>
+              <li><a href="https://gioiellifazio.it/" target="_blank">gioiellifazio.it</a></li>
+            </ul>
+          </div>
+          <div class="sites-group">
+            <h4><i class="fab fa-hubspot"></i> HubSpot Sites</h4>
+            <ul>
+              <li><a href="https://integricare.ca/" target="_blank">integricare.ca</a></li>
+              <li><a href="https://www.altfeeco.com/" target="_blank">altfeeco.com</a></li>
+              <li><a href="https://www.ringy.com/" target="_blank">ringy.com</a></li>
+              <li><a href="https://www.helloroketto.com/" target="_blank">helloroketto.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Personal Projects -->
+      <div class="about-section">
+        <h3>Personal Projects</h3>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h4>Create PDF Resume</h4>
+            <p>An online tool to generate professional PDF resumes quickly and easily.</p>
+            <a href="https://createpdfresume.com/" target="_blank">createpdfresume.com <i class="fas fa-external-link-alt" style="font-size: 11px;"></i></a>
+          </div>
+          <div class="project-card">
+            <h4>Emlak Satisi</h4>
+            <p>Real estate listing site for Baku, Azerbaijan.</p>
+            <a href="https://emlaksatisi.az" target="_blank">emlaksatisi.az <i class="fas fa-external-link-alt" style="font-size: 11px;"></i></a>
+          </div>
+          <div class="project-card">
+            <h4>Simple Country Redirect</h4>
+            <p>WordPress plugin for IP geolocation-based country redirects.</p>
+            <a href="https://wordpress.org/plugins/simple-country-redirect-with-ip-geolocation/" target="_blank">View on WordPress.org <i class="fas fa-external-link-alt" style="font-size: 11px;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- CTA -->
+      <div class="cta-section">
+        <h3>Check Out My Recent Works</h3>
+        <p>Browse my latest projects and see what I've been building.</p>
+        <a href="https://tahir-asadli.github.io/" target="_blank" class="cta-button">View Portfolio <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer id="contact" class="footer-section">
+    <div class="row">
+      <div class="container">
+        <div class="left">
+          <a target="_blank" href="https://www.upwork.com/freelancers/tahirasadli">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 28" role="img" aria-hidden="true" height="20" fill="#222222">
+              <path d="M28.18,19.06A6.54,6.54,0,0,1,23,16c.67-5.34,2.62-7,5.2-7s4.54,2,4.54,5-2,5-4.54,5m0-13.34a7.77,7.77,0,0,0-7.9,6.08,26,26,0,0,1-1.93-5.62H12v7.9c0,2.87-1.3,5-3.85,5s-4-2.12-4-5l0-7.9H.49v7.9A8.61,8.61,0,0,0,2.6,20a7.27,7.27,0,0,0,5.54,2.35c4.41,0,7.5-3.39,7.5-8.24V8.77a25.87,25.87,0,0,0,3.66,8.05L17.34,28h3.72l1.29-7.92a11,11,0,0,0,1.36,1,8.32,8.32,0,0,0,4.14,1.28h.34A8.1,8.1,0,0,0,36.37,14a8.12,8.12,0,0,0-8.19-8.31"></path>
+              <path d="M80.8,7.86V6.18H77.2V21.81h3.65V15.69c0-3.77.34-6.48,5.4-6.13V6c-2.36-.18-4.2.31-5.45,1.87"></path>
+              <polygon points="55.51 6.17 52.87 17.11 50.05 6.17 45.41 6.17 42.59 17.11 39.95 6.17 36.26 6.17 40.31 21.82 44.69 21.82 47.73 10.71 50.74 21.82 55.12 21.82 59.4 6.17 55.51 6.17"></polygon>
+              <path d="M67.42,19.07c-2.59,0-4.53-2.05-4.53-5s2-5,4.53-5S72,11,72,14s-2,5-4.54,5m0-13.35A8.1,8.1,0,0,0,59.25,14,8.18,8.18,0,1,0,75.6,14a8.11,8.11,0,0,0-8.18-8.31"></path>
+              <path d="M91.47,14.13h.84l5.09,7.69h4.11l-5.85-8.53a7.66,7.66,0,0,0,4.74-7.11H96.77c0,3.37-2.66,4.65-5.3,4.65V0H87.82V21.82h3.64Z"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="right">
+          <div class="social-links">
+            <a target="_blank" href="https://www.linkedin.com/in/tahir-asadli-54b5911b5/"><i class="fab fa-linkedin-in"></i></a>
+            <a target="_blank" href="https://github.com/tahir-asadov/"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://join.skype.com/invite/q7U1cahgABWp"><i class="fab fa-skype"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('load', function () {
+      const body = document.querySelector('body');
+      const menuButton = document.querySelector('.menu-button');
+      menuButton.addEventListener('click', function (e) {
+        body.classList.toggle('menu-open');
+      });
+    });
+  </script>
+</body>
+
+</html>
