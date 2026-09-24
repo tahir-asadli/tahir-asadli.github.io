@@ -1,0 +1,253 @@
+@import 'tailwindcss';
+@source "../**/*.html";
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  /* --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-accent: #2563eb;
+  --color-brand-dark: #475569;
+  --color-brand-black: #0f172a; */
+
+  --color-brand-500: #567b62;
+  --color-brand-600: #3b9759;
+  --color-brand-700: #1f8f6f;
+  --color-brand-accent: #43c068;
+  --color-brand-dark: #475569;
+  --color-brand-black: #0f172a;
+}
+@layer base {
+  :root {
+    font-size: var(--text-base);
+    font-family: var(--font-sans);
+    color: var(--color-brand-black);
+    accent-color: var(--color-brand-accent);
+    scroll-behavior: smooth;
+    ::selection {
+      background-color: var(--color-brand-accent);
+      color: var(--color-brand-50);
+    }
+  }
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply antialiased;
+  }
+  h1,
+  .h1 {
+    line-height: 1;
+    font-weight: 800;
+    font-size: var(--text-3xl);
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+    @variant md {
+      font-size: var(--text-5xl);
+    }
+    @variant lg {
+      font-size: var(--text-7xl);
+    }
+    span {
+      @apply text-transparent bg-clip-text bg-linear-to-r from-brand-600 via-brand-700 to-brand-600;
+    }
+  }
+  h2,
+  .h2 {
+    line-height: 1.1;
+    font-weight: 700;
+    font-size: var(--text-2xl);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+    @variant md {
+      font-size: var(--text-3xl);
+    }
+    @variant lg {
+      font-size: var(--text-4xl);
+    }
+    span {
+      @apply text-transparent bg-clip-text bg-linear-to-r from-brand-600 via-indigo-600 to-blue-600;
+    }
+  }
+  h3,
+  .h3 {
+    line-height: 1.1;
+    font-weight: 700;
+    font-size: var(--text-lg);
+    margin-bottom: 0.5rem;
+    @variant md {
+      font-size: var(--text-lg);
+    }
+    @variant lg {
+      font-size: var(--text-xl);
+    }
+    span {
+      @apply text-transparent bg-clip-text bg-linear-to-r from-brand-600 via-indigo-600 to-blue-600;
+    }
+  }
+  h4,
+  .h4 {
+    line-height: 1.2;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-size: var(--text-md);
+    @variant md {
+      font-size: var(--text-lg);
+    }
+    @variant lg {
+      font-size: var(--text-lg);
+    }
+    span {
+      @apply text-transparent bg-clip-text bg-linear-to-r from-brand-600 via-indigo-600 to-blue-600;
+    }
+  }
+  h5,
+  .h5 {
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-size: var(--text-md);
+    @variant md {
+      font-size: var(--text-md);
+    }
+    @variant md {
+      font-size: var(--text-lg);
+    }
+    span {
+      @apply text-transparent bg-clip-text bg-linear-to-r from-brand-600 via-indigo-600 to-blue-600;
+    }
+  }
+  h6,
+  .h5 {
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-size: var(--text-sm);
+    @variant md {
+      font-size: var(--text-sm);
+    }
+    @variant md {
+      font-size: var(--text-sm);
+    }
+    span {
+      @apply text-transparent bg-clip-text bg-linear-to-r from-brand-600 via-indigo-600 to-blue-600;
+    }
+  }
+  p {
+    @apply text-brand-dark;
+  }
+
+  a {
+    @apply text-slate-600 hover:text-brand-600 transition-colors;
+  }
+}
+@layer components {
+  .button {
+    @apply px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all shadow-md shadow-brand-600/20 hover:shadow-lg hover:shadow-brand-600/30;
+  }
+  .button.outlined {
+    @apply bg-white hover:bg-slate-100 text-slate-800 border border-slate-300;
+  }
+  .note {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold mb-6 w-max shadow-[0_1px_2px_0_rgba(0,0,0,0.05)];
+  }
+
+  .note > span {
+    @apply w-2 h-2 rounded-full bg-emerald-500 animate-pulse;
+  }
+  .pill {
+    @apply px-3 py-1 bg-white border border-slate-200 rounded-lg text-xs font-medium text-slate-700 shadow-sm flex items-center gap-1.5;
+  }
+
+  .skill {
+    @apply p-8 bg-slate-50 border border-slate-200 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+  .skill h3 {
+    @apply mb-2;
+  }
+  .skill p {
+    @apply text-slate-600 text-sm leading-relaxed mb-4;
+  }
+  .skill > .icon {
+    @apply w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-900 text-2xl mb-6 shadow-sm  transition-colors;
+  }
+  .skill:hover > .icon {
+    @apply border-brand-500;
+  }
+
+  .skill .skill-pill {
+    @apply text-[11px] font-semibold px-2 py-0.5 rounded;
+  }
+
+  .service {
+    @apply bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex gap-5;
+  }
+
+  .service > .icon {
+    @apply w-12 h-12 shrink-0 bg-brand-50 rounded-xl flex items-center justify-center text-brand-600 text-xl font-bold;
+  }
+
+  .service h3 {
+    @apply mb-2;
+  }
+
+  .service p {
+    @apply text-sm leading-relaxed mb-4;
+  }
+
+  .service ul {
+    @apply text-xs font-medium text-slate-700 space-y-2;
+  }
+
+  .service ul li {
+    @apply flex items-center gap-2;
+  }
+
+  .service ul li i {
+    @apply text-brand-600;
+  }
+
+  .project {
+    @apply bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col;
+  }
+
+  .project .cover {
+    @apply relative h-48 bg-gradient-to-br from-indigo-100 to-blue-50 border-b border-slate-200 flex flex-col items-center justify-center p-6 text-center transition-transform duration-300;
+  }
+  .project .cover i {
+    @apply text-4xl text-brand-600 mb-2;
+  }
+  .project .cover span {
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+  }
+  .project:hover .cover {
+    @apply scale-105;
+  }
+  .project .info {
+    @apply p-6 flex-1 flex flex-col justify-between;
+  }
+  .project .info .frameworks {
+    @apply flex flex-wrap gap-2 mb-3;
+  }
+  .project .info .frameworks > span {
+    @apply text-[11px] font-bold px-2 py-0.5 rounded;
+  }
+
+  .project .info h3 {
+    @apply text-lg font-bold text-slate-900;
+  }
+  .project .info p {
+    @apply text-slate-600 text-sm leading-relaxed;
+  }
+
+  .project .link {
+    @apply inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-700;
+  }
+
+  .project .link i {
+    @apply text-[10px];
+  }
+}
